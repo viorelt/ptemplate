@@ -1,0 +1,32 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "post",
+            "otherEntityName": "submitAction",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "tUi"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "icon",
+            "javadoc": "pathul pentru iconul ce apare in dreptul fiecarui template\nin ecranul platile mele",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "boxColor",
+            "javadoc": "reprezinta culoarea aferenta tipului de template",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180508123805",
+    "entityTableName": "t_ui",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "microserviceName": "ptemplate"
+}

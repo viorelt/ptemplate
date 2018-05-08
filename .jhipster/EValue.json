@@ -1,0 +1,31 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "myTemplate",
+            "otherEntityName": "myTemplate",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "element",
+            "otherEntityName": "element",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "value",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180508123810",
+    "javadoc": "EValue reprezinta valoarea elementului curent si\neste fie o valoare definita la nivel de template static,\nfie la nivel de myTemplate.",
+    "entityTableName": "e_value",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "microserviceName": "ptemplate"
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity EUi.
+    -->
+    <changeSet id="20180508123808-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="label_key_id"
+                                 baseTableName="e_ui"
+                                 constraintName="fk_eui_label_key_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="i_18_n"/>
+
+        <addForeignKeyConstraint baseColumnNames="description_key_id"
+                                 baseTableName="e_ui"
+                                 constraintName="fk_eui_description_key_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="i_18_n"/>
+
+        <addForeignKeyConstraint baseColumnNames="hint_key_id"
+                                 baseTableName="e_ui"
+                                 constraintName="fk_eui_hint_key_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="i_18_n"/>
+
+    </changeSet>
+</databaseChangeLog>

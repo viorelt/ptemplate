@@ -1,0 +1,46 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "properties",
+            "otherEntityName": "eValue",
+            "otherEntityRelationshipName": "myTemplate"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "staticTemplate",
+            "otherEntityName": "template",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "accountId",
+            "javadoc": "The user account identifier",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "name",
+            "javadoc": "numele sub care a fost salvata plata mea",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdBy",
+            "javadoc": "Who created the version",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdDate",
+            "javadoc": "When the version was created",
+            "fieldType": "Instant"
+        }
+    ],
+    "changelogDate": "20180508123803",
+    "entityTableName": "my_template",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "microserviceName": "ptemplate"
+}

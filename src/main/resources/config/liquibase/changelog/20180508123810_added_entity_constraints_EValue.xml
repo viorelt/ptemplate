@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity EValue.
+    -->
+    <changeSet id="20180508123810-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="my_template_id"
+                                 baseTableName="e_value"
+                                 constraintName="fk_evalue_my_template_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="my_template"/>
+
+        <addForeignKeyConstraint baseColumnNames="element_id"
+                                 baseTableName="e_value"
+                                 constraintName="fk_evalue_element_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="element"/>
+
+    </changeSet>
+</databaseChangeLog>
