@@ -1,0 +1,12 @@
+version: '2'
+services:
+    ptemplate-app:
+        image: ptemplate
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://ptemplate-postgresql:5432/ptemplate
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+    ptemplate-postgresql:
+        extends:
+            file: postgresql.yml
+            service: ptemplate-postgresql

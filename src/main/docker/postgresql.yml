@@ -1,0 +1,11 @@
+version: '2'
+services:
+    ptemplate-postgresql:
+        image: postgres:9.6.5
+        # volumes:
+        #     - ~/volumes/jhipster/ptemplate/postgresql/:/var/lib/postgresql/data/
+        environment:
+            - POSTGRES_USER=ptemplate
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432
