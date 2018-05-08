@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Element.
+    -->
+    <changeSet id="20180508123807-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="template_id"
+                                 baseTableName="element"
+                                 constraintName="fk_element_template_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="template"/>
+
+        <addForeignKeyConstraint baseColumnNames="ui_id"
+                                 baseTableName="element"
+                                 constraintName="fk_element_ui_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="e_ui"/>
+
+        <addForeignKeyConstraint baseColumnNames="backend_id"
+                                 baseTableName="element"
+                                 constraintName="fk_element_backend_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="e_backend"/>
+
+        <addForeignKeyConstraint baseColumnNames="init_id"
+                                 baseTableName="element"
+                                 constraintName="fk_element_init_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="e_value"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,60 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "template",
+            "otherEntityName": "template",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "ui",
+            "otherEntityName": "eUi",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "element"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "backend",
+            "otherEntityName": "eBackend",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "element"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "init",
+            "otherEntityName": "eValue",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "element"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "code",
+            "javadoc": "The code of a specific lelement.\nThis code must ensure the uniqueness of the template version",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "javadoc": "The name of a specific element",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "deleted",
+            "javadoc": "Flag to indicate if a particular template has been deleted",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20180508123807",
+    "javadoc": "The Element entity",
+    "entityTableName": "element",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "microserviceName": "ptemplate"
+}

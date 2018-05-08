@@ -1,0 +1,63 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "ui",
+            "otherEntityName": "tUi",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "template"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "backend",
+            "otherEntityName": "tBackend",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "template"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "elements",
+            "otherEntityName": "element",
+            "otherEntityRelationshipName": "template"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "parent",
+            "otherEntityName": "template",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "code",
+            "javadoc": "The code that uniquely identifies a template",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdBy",
+            "javadoc": "Who created the version",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdDate",
+            "javadoc": "When the version was created",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "deleted",
+            "javadoc": "Flag to indicate if a particular template has been deleted",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20180508123802",
+    "javadoc": "Entitatea reprezinta un sablon static pe baza caruia se vor genera sabloane\nin platile mele",
+    "entityTableName": "template",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "microserviceName": "ptemplate"
+}

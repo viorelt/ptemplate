@@ -1,0 +1,31 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "eUi",
+            "otherEntityName": "eUi",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "label",
+            "javadoc": "label reprezinta ceea ce vizualizeaza utilizatorul\ndin cadrul unui select-option",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "value",
+            "javadoc": "value reprezinta ceea ce a selectat utilizatorul\ndin cadrul unui select-option si va fi trimis catre\nbackend",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180508123811",
+    "javadoc": "Entitatea ValueOption reprezinta un option pentru un element de tipul\nEUiType.SELECTION",
+    "entityTableName": "value_option",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "microserviceName": "ptemplate"
+}

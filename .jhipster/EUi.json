@@ -1,0 +1,95 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "options",
+            "otherEntityName": "valueOption",
+            "otherEntityRelationshipName": "eUi"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "labelKey",
+            "otherEntityName": "i18N",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "descriptionKey",
+            "otherEntityName": "i18N",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "hintKey",
+            "otherEntityName": "i18N",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "type",
+            "javadoc": "tipul elementului",
+            "fieldType": "EUiType",
+            "fieldValues": "TEXT,NUMERIC,DATE,CHECKBOX,SELECTION,EMAIL,IBAN,PHONE"
+        },
+        {
+            "fieldName": "index",
+            "javadoc": "ordinea elementului in pagina",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "icon",
+            "javadoc": "path-ul relativ pentru elementul curent",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "labelKey",
+            "javadoc": "cheia labelului pentru elementul curent",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descriptionKey",
+            "javadoc": "cheia descrierii pentru elementul curent",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hintKey",
+            "javadoc": "cheia pentru sugestia aferenta elementului curent",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "readOnly",
+            "javadoc": "true daca elementul este readonly",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "required",
+            "javadoc": "true daca elementul este obligatoriu de introdus",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "visible",
+            "javadoc": "true daca elementul este vizibil",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "format",
+            "javadoc": "formatul necesar interfetei grafice, care va fi aplicat\npe valoarea venita din backend",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "validator",
+            "javadoc": "validatorul pentru elementul curent",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180508123808",
+    "javadoc": "The ElementUi entity",
+    "entityTableName": "e_ui",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "microserviceName": "ptemplate"
+}

@@ -1,0 +1,23 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "labelKey",
+            "javadoc": "cheia pentru eticheta butonului prin care se face plata",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "endpoint",
+            "javadoc": "endpointul la care se face plata",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180508123806",
+    "entityTableName": "submit_action",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "microserviceName": "ptemplate"
+}

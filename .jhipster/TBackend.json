@@ -1,0 +1,29 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "type",
+            "javadoc": "este tipul payload-ului si poate fi: numele unei clase,\nun anumit tip de plugin Spring cu ajutorul caruia se va face\nmaparea dintre o structura sursa (de TransactionHistory)\nin structura necesara template-ului curent",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "recurrence",
+            "javadoc": "Boolean.TRUE if the template is used for recurring payments",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "recurringDate",
+            "javadoc": "The date on which payment is automatically made",
+            "fieldType": "Instant"
+        }
+    ],
+    "changelogDate": "20180508123804",
+    "javadoc": "The TemplateBackend class is the extension of an attribute template\nused for certain backend processing",
+    "entityTableName": "t_backend",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "microserviceName": "ptemplate"
+}
