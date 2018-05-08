@@ -44,23 +44,7 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "labelKey",
-            "javadoc": "cheia labelului pentru elementul curent",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "descriptionKey",
-            "javadoc": "cheia descrierii pentru elementul curent",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "hintKey",
-            "javadoc": "cheia pentru sugestia aferenta elementului curent",
-            "fieldType": "String"
-        },
-        {
             "fieldName": "readOnly",
-            "javadoc": "true daca elementul este readonly",
             "fieldType": "Boolean"
         },
         {
