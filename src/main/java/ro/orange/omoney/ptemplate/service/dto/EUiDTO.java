@@ -20,12 +20,6 @@ public class EUiDTO implements Serializable {
 
     private String icon;
 
-    private String labelKey;
-
-    private String descriptionKey;
-
-    private String hintKey;
-
     private Boolean readOnly;
 
     private Boolean required;
@@ -72,30 +66,6 @@ public class EUiDTO implements Serializable {
 
     public void setIcon(String icon) {
         this.icon = icon;
-    }
-
-    public String getLabelKey() {
-        return labelKey;
-    }
-
-    public void setLabelKey(String labelKey) {
-        this.labelKey = labelKey;
-    }
-
-    public String getDescriptionKey() {
-        return descriptionKey;
-    }
-
-    public void setDescriptionKey(String descriptionKey) {
-        this.descriptionKey = descriptionKey;
-    }
-
-    public String getHintKey() {
-        return hintKey;
-    }
-
-    public void setHintKey(String hintKey) {
-        this.hintKey = hintKey;
     }
 
     public Boolean isReadOnly() {
@@ -190,9 +160,6 @@ public class EUiDTO implements Serializable {
             ", type='" + getType() + "'" +
             ", index=" + getIndex() +
             ", icon='" + getIcon() + "'" +
-            ", labelKey='" + getLabelKey() + "'" +
-            ", descriptionKey='" + getDescriptionKey() + "'" +
-            ", hintKey='" + getHintKey() + "'" +
             ", readOnly='" + isReadOnly() + "'" +
             ", required='" + isRequired() + "'" +
             ", visible='" + isVisible() + "'" +

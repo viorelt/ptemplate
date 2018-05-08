@@ -50,31 +50,6 @@ public class EUi implements Serializable {
     @Column(name = "icon")
     private String icon;
 
-    /**
-     * cheia labelului pentru elementul curent
-     */
-    @ApiModelProperty(value = "cheia labelului pentru elementul curent")
-    @Column(name = "label_key")
-    private String labelKey;
-
-    /**
-     * cheia descrierii pentru elementul curent
-     */
-    @ApiModelProperty(value = "cheia descrierii pentru elementul curent")
-    @Column(name = "description_key")
-    private String descriptionKey;
-
-    /**
-     * cheia pentru sugestia aferenta elementului curent
-     */
-    @ApiModelProperty(value = "cheia pentru sugestia aferenta elementului curent")
-    @Column(name = "hint_key")
-    private String hintKey;
-
-    /**
-     * true daca elementul este readonly
-     */
-    @ApiModelProperty(value = "true daca elementul este readonly")
     @Column(name = "read_only")
     private Boolean readOnly;
 
@@ -166,45 +141,6 @@ public class EUi implements Serializable {
 
     public void setIcon(String icon) {
         this.icon = icon;
-    }
-
-    public String getLabelKey() {
-        return labelKey;
-    }
-
-    public EUi labelKey(String labelKey) {
-        this.labelKey = labelKey;
-        return this;
-    }
-
-    public void setLabelKey(String labelKey) {
-        this.labelKey = labelKey;
-    }
-
-    public String getDescriptionKey() {
-        return descriptionKey;
-    }
-
-    public EUi descriptionKey(String descriptionKey) {
-        this.descriptionKey = descriptionKey;
-        return this;
-    }
-
-    public void setDescriptionKey(String descriptionKey) {
-        this.descriptionKey = descriptionKey;
-    }
-
-    public String getHintKey() {
-        return hintKey;
-    }
-
-    public EUi hintKey(String hintKey) {
-        this.hintKey = hintKey;
-        return this;
-    }
-
-    public void setHintKey(String hintKey) {
-        this.hintKey = hintKey;
     }
 
     public Boolean isReadOnly() {
@@ -364,9 +300,6 @@ public class EUi implements Serializable {
             ", type='" + getType() + "'" +
             ", index=" + getIndex() +
             ", icon='" + getIcon() + "'" +
-            ", labelKey='" + getLabelKey() + "'" +
-            ", descriptionKey='" + getDescriptionKey() + "'" +
-            ", hintKey='" + getHintKey() + "'" +
             ", readOnly='" + isReadOnly() + "'" +
             ", required='" + isRequired() + "'" +
             ", visible='" + isVisible() + "'" +

@@ -51,15 +51,6 @@ public class EUiResourceIntTest {
     private static final String DEFAULT_ICON = "AAAAAAAAAA";
     private static final String UPDATED_ICON = "BBBBBBBBBB";
 
-    private static final String DEFAULT_LABEL_KEY = "AAAAAAAAAA";
-    private static final String UPDATED_LABEL_KEY = "BBBBBBBBBB";
-
-    private static final String DEFAULT_DESCRIPTION_KEY = "AAAAAAAAAA";
-    private static final String UPDATED_DESCRIPTION_KEY = "BBBBBBBBBB";
-
-    private static final String DEFAULT_HINT_KEY = "AAAAAAAAAA";
-    private static final String UPDATED_HINT_KEY = "BBBBBBBBBB";
-
     private static final Boolean DEFAULT_READ_ONLY = false;
     private static final Boolean UPDATED_READ_ONLY = true;
 
@@ -122,9 +113,6 @@ public class EUiResourceIntTest {
             .type(DEFAULT_TYPE)
             .index(DEFAULT_INDEX)
             .icon(DEFAULT_ICON)
-            .labelKey(DEFAULT_LABEL_KEY)
-            .descriptionKey(DEFAULT_DESCRIPTION_KEY)
-            .hintKey(DEFAULT_HINT_KEY)
             .readOnly(DEFAULT_READ_ONLY)
             .required(DEFAULT_REQUIRED)
             .visible(DEFAULT_VISIBLE)
@@ -157,9 +145,6 @@ public class EUiResourceIntTest {
         assertThat(testEUi.getType()).isEqualTo(DEFAULT_TYPE);
         assertThat(testEUi.getIndex()).isEqualTo(DEFAULT_INDEX);
         assertThat(testEUi.getIcon()).isEqualTo(DEFAULT_ICON);
-        assertThat(testEUi.getLabelKey()).isEqualTo(DEFAULT_LABEL_KEY);
-        assertThat(testEUi.getDescriptionKey()).isEqualTo(DEFAULT_DESCRIPTION_KEY);
-        assertThat(testEUi.getHintKey()).isEqualTo(DEFAULT_HINT_KEY);
         assertThat(testEUi.isReadOnly()).isEqualTo(DEFAULT_READ_ONLY);
         assertThat(testEUi.isRequired()).isEqualTo(DEFAULT_REQUIRED);
         assertThat(testEUi.isVisible()).isEqualTo(DEFAULT_VISIBLE);
@@ -201,9 +186,6 @@ public class EUiResourceIntTest {
             .andExpect(jsonPath("$.[*].type").value(hasItem(DEFAULT_TYPE.toString())))
             .andExpect(jsonPath("$.[*].index").value(hasItem(DEFAULT_INDEX)))
             .andExpect(jsonPath("$.[*].icon").value(hasItem(DEFAULT_ICON.toString())))
-            .andExpect(jsonPath("$.[*].labelKey").value(hasItem(DEFAULT_LABEL_KEY.toString())))
-            .andExpect(jsonPath("$.[*].descriptionKey").value(hasItem(DEFAULT_DESCRIPTION_KEY.toString())))
-            .andExpect(jsonPath("$.[*].hintKey").value(hasItem(DEFAULT_HINT_KEY.toString())))
             .andExpect(jsonPath("$.[*].readOnly").value(hasItem(DEFAULT_READ_ONLY.booleanValue())))
             .andExpect(jsonPath("$.[*].required").value(hasItem(DEFAULT_REQUIRED.booleanValue())))
             .andExpect(jsonPath("$.[*].visible").value(hasItem(DEFAULT_VISIBLE.booleanValue())))
@@ -225,9 +207,6 @@ public class EUiResourceIntTest {
             .andExpect(jsonPath("$.type").value(DEFAULT_TYPE.toString()))
             .andExpect(jsonPath("$.index").value(DEFAULT_INDEX))
             .andExpect(jsonPath("$.icon").value(DEFAULT_ICON.toString()))
-            .andExpect(jsonPath("$.labelKey").value(DEFAULT_LABEL_KEY.toString()))
-            .andExpect(jsonPath("$.descriptionKey").value(DEFAULT_DESCRIPTION_KEY.toString()))
-            .andExpect(jsonPath("$.hintKey").value(DEFAULT_HINT_KEY.toString()))
             .andExpect(jsonPath("$.readOnly").value(DEFAULT_READ_ONLY.booleanValue()))
             .andExpect(jsonPath("$.required").value(DEFAULT_REQUIRED.booleanValue()))
             .andExpect(jsonPath("$.visible").value(DEFAULT_VISIBLE.booleanValue()))
@@ -258,9 +237,6 @@ public class EUiResourceIntTest {
             .type(UPDATED_TYPE)
             .index(UPDATED_INDEX)
             .icon(UPDATED_ICON)
-            .labelKey(UPDATED_LABEL_KEY)
-            .descriptionKey(UPDATED_DESCRIPTION_KEY)
-            .hintKey(UPDATED_HINT_KEY)
             .readOnly(UPDATED_READ_ONLY)
             .required(UPDATED_REQUIRED)
             .visible(UPDATED_VISIBLE)
@@ -280,9 +256,6 @@ public class EUiResourceIntTest {
         assertThat(testEUi.getType()).isEqualTo(UPDATED_TYPE);
         assertThat(testEUi.getIndex()).isEqualTo(UPDATED_INDEX);
         assertThat(testEUi.getIcon()).isEqualTo(UPDATED_ICON);
-        assertThat(testEUi.getLabelKey()).isEqualTo(UPDATED_LABEL_KEY);
-        assertThat(testEUi.getDescriptionKey()).isEqualTo(UPDATED_DESCRIPTION_KEY);
-        assertThat(testEUi.getHintKey()).isEqualTo(UPDATED_HINT_KEY);
         assertThat(testEUi.isReadOnly()).isEqualTo(UPDATED_READ_ONLY);
         assertThat(testEUi.isRequired()).isEqualTo(UPDATED_REQUIRED);
         assertThat(testEUi.isVisible()).isEqualTo(UPDATED_VISIBLE);

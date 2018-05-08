@@ -33,18 +33,6 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="label_key" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="description_key" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="hint_key" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-
             <column name="read_only" type="boolean">
                 <constraints nullable="true" />
             </column>
