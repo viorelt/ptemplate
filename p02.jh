@@ -139,21 +139,7 @@ entity EUi{
      * path-ul relativ pentru elementul curent
      */
     icon String,
-    /**
-     * cheia labelului pentru elementul curent
-     */    
-    labelKey String,
-    /**
-     * cheia descrierii pentru elementul curent
-     */
-    descriptionKey String,    
-    /**
-     * cheia pentru sugestia aferenta elementului curent
-     */    
-    hintKey String,
-    /**
-     * true daca elementul este readonly
-     */
+  
     readOnly Boolean,   
     /**
      * true daca elementul este obligatoriu de introdus
