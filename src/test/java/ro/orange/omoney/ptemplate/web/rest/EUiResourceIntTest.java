@@ -63,9 +63,6 @@ public class EUiResourceIntTest {
     private static final String DEFAULT_FORMAT = "AAAAAAAAAA";
     private static final String UPDATED_FORMAT = "BBBBBBBBBB";
 
-    private static final String DEFAULT_VALIDATOR = "AAAAAAAAAA";
-    private static final String UPDATED_VALIDATOR = "BBBBBBBBBB";
-
     @Autowired
     private EUiRepository eUiRepository;
 
@@ -116,8 +113,7 @@ public class EUiResourceIntTest {
             .readOnly(DEFAULT_READ_ONLY)
             .required(DEFAULT_REQUIRED)
             .visible(DEFAULT_VISIBLE)
-            .format(DEFAULT_FORMAT)
-            .validator(DEFAULT_VALIDATOR);
+            .format(DEFAULT_FORMAT);
         return eUi;
     }
 
@@ -149,7 +145,6 @@ public class EUiResourceIntTest {
         assertThat(testEUi.isRequired()).isEqualTo(DEFAULT_REQUIRED);
         assertThat(testEUi.isVisible()).isEqualTo(DEFAULT_VISIBLE);
         assertThat(testEUi.getFormat()).isEqualTo(DEFAULT_FORMAT);
-        assertThat(testEUi.getValidator()).isEqualTo(DEFAULT_VALIDATOR);
     }
 
     @Test
@@ -189,8 +184,7 @@ public class EUiResourceIntTest {
             .andExpect(jsonPath("$.[*].readOnly").value(hasItem(DEFAULT_READ_ONLY.booleanValue())))
             .andExpect(jsonPath("$.[*].required").value(hasItem(DEFAULT_REQUIRED.booleanValue())))
             .andExpect(jsonPath("$.[*].visible").value(hasItem(DEFAULT_VISIBLE.booleanValue())))
-            .andExpect(jsonPath("$.[*].format").value(hasItem(DEFAULT_FORMAT.toString())))
-            .andExpect(jsonPath("$.[*].validator").value(hasItem(DEFAULT_VALIDATOR.toString())));
+            .andExpect(jsonPath("$.[*].format").value(hasItem(DEFAULT_FORMAT.toString())));
     }
 
     @Test
@@ -210,8 +204,7 @@ public class EUiResourceIntTest {
             .andExpect(jsonPath("$.readOnly").value(DEFAULT_READ_ONLY.booleanValue()))
             .andExpect(jsonPath("$.required").value(DEFAULT_REQUIRED.booleanValue()))
             .andExpect(jsonPath("$.visible").value(DEFAULT_VISIBLE.booleanValue()))
-            .andExpect(jsonPath("$.format").value(DEFAULT_FORMAT.toString()))
-            .andExpect(jsonPath("$.validator").value(DEFAULT_VALIDATOR.toString()));
+            .andExpect(jsonPath("$.format").value(DEFAULT_FORMAT.toString()));
     }
 
     @Test
@@ -240,8 +233,7 @@ public class EUiResourceIntTest {
             .readOnly(UPDATED_READ_ONLY)
             .required(UPDATED_REQUIRED)
             .visible(UPDATED_VISIBLE)
-            .format(UPDATED_FORMAT)
-            .validator(UPDATED_VALIDATOR);
+            .format(UPDATED_FORMAT);
         EUiDTO eUiDTO = eUiMapper.toDto(updatedEUi);
 
         restEUiMockMvc.perform(put("/api/e-uis")
@@ -260,7 +252,6 @@ public class EUiResourceIntTest {
         assertThat(testEUi.isRequired()).isEqualTo(UPDATED_REQUIRED);
         assertThat(testEUi.isVisible()).isEqualTo(UPDATED_VISIBLE);
         assertThat(testEUi.getFormat()).isEqualTo(UPDATED_FORMAT);
-        assertThat(testEUi.getValidator()).isEqualTo(UPDATED_VALIDATOR);
     }
 
     @Test

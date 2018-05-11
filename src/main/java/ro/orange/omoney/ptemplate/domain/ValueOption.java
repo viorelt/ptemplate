@@ -9,10 +9,9 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * Entitatea ValueOption reprezinta un option pentru un element de tipul
- * EUiType.SELECTION
+ * This is an option for the element of type EUiType.SELECTION
  */
-@ApiModel(description = "Entitatea ValueOption reprezinta un option pentru un element de tipul EUiType.SELECTION")
+@ApiModel(description = "This is an option for the element of type EUiType.SELECTION")
 @Entity
 @Table(name = "value_option")
 public class ValueOption implements Serializable {
@@ -25,24 +24,17 @@ public class ValueOption implements Serializable {
     private Long id;
 
     /**
-     * label reprezinta ceea ce vizualizeaza utilizatorul
-     * din cadrul unui select-option
+     * The option's backend corresponding value.
      */
-    @ApiModelProperty(value = "label reprezinta ceea ce vizualizeaza utilizatorul din cadrul unui select-option")
-    @Column(name = "jhi_label")
-    private String label;
-
-    /**
-     * value reprezinta ceea ce a selectat utilizatorul
-     * din cadrul unui select-option si va fi trimis catre
-     * backend
-     */
-    @ApiModelProperty(value = "value reprezinta ceea ce a selectat utilizatorul din cadrul unui select-option si va fi trimis catre backend")
+    @ApiModelProperty(value = "The option's backend corresponding value.")
     @Column(name = "jhi_value")
     private String value;
 
     @ManyToOne
     private EUi eUi;
+
+    @ManyToOne
+    private I18N label;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -51,19 +43,6 @@ public class ValueOption implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getLabel() {
-        return label;
-    }
-
-    public ValueOption label(String label) {
-        this.label = label;
-        return this;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
     }
 
     public String getValue() {
@@ -91,6 +70,19 @@ public class ValueOption implements Serializable {
     public void setEUi(EUi eUi) {
         this.eUi = eUi;
     }
+
+    public I18N getLabel() {
+        return label;
+    }
+
+    public ValueOption label(I18N i18N) {
+        this.label = i18N;
+        return this;
+    }
+
+    public void setLabel(I18N i18N) {
+        this.label = i18N;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -117,7 +109,6 @@ public class ValueOption implements Serializable {
     public String toString() {
         return "ValueOption{" +
             "id=" + getId() +
-            ", label='" + getLabel() + "'" +
             ", value='" + getValue() + "'" +
             "}";
     }

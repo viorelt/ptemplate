@@ -8,6 +8,18 @@
             "otherEntityRelationshipName": "eUi"
         },
         {
+            "relationshipType": "one-to-many",
+            "relationshipName": "validators",
+            "otherEntityName": "eValidator",
+            "otherEntityRelationshipName": "eUi"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "visibilities",
+            "otherEntityName": "eVisibility",
+            "otherEntityRelationshipName": "eUi"
+        },
+        {
             "relationshipType": "many-to-one",
             "relationshipName": "labelKey",
             "otherEntityName": "i18N",
@@ -29,42 +41,38 @@
     "fields": [
         {
             "fieldName": "type",
-            "javadoc": "tipul elementului",
+            "javadoc": "The element type.",
             "fieldType": "EUiType",
             "fieldValues": "TEXT,NUMERIC,DATE,CHECKBOX,SELECTION,EMAIL,IBAN,PHONE"
         },
         {
             "fieldName": "index",
-            "javadoc": "ordinea elementului in pagina",
+            "javadoc": "The position of the element inside the view.",
             "fieldType": "Integer"
         },
         {
             "fieldName": "icon",
-            "javadoc": "path-ul relativ pentru elementul curent",
+            "javadoc": "The icon name assigned to the element.",
             "fieldType": "String"
         },
         {
             "fieldName": "readOnly",
+            "javadoc": "True if the element is read-only.",
             "fieldType": "Boolean"
         },
         {
             "fieldName": "required",
-            "javadoc": "true daca elementul este obligatoriu de introdus",
+            "javadoc": "True if the element's completion is mandatory.",
             "fieldType": "Boolean"
         },
         {
             "fieldName": "visible",
-            "javadoc": "true daca elementul este vizibil",
+            "javadoc": "True if the element is visible.",
             "fieldType": "Boolean"
         },
         {
             "fieldName": "format",
-            "javadoc": "formatul necesar interfetei grafice, care va fi aplicat\npe valoarea venita din backend",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "validator",
-            "javadoc": "validatorul pentru elementul curent",
+            "javadoc": "The required format for the element.",
             "fieldType": "String"
         }
     ],

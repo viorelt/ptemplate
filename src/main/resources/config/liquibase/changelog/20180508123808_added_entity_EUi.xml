@@ -49,10 +49,6 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="validator" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-
             <column name="label_key_id" type="bigint">
                 <constraints nullable="true" />
             </column>

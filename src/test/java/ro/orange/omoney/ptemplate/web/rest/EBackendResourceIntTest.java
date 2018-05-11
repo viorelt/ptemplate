@@ -50,8 +50,8 @@ public class EBackendResourceIntTest {
     private static final String DEFAULT_FORMAT = "AAAAAAAAAA";
     private static final String UPDATED_FORMAT = "BBBBBBBBBB";
 
-    private static final String DEFAULT_VALIDATOR = "AAAAAAAAAA";
-    private static final String UPDATED_VALIDATOR = "BBBBBBBBBB";
+    private static final Boolean DEFAULT_REQUIRED = false;
+    private static final Boolean UPDATED_REQUIRED = true;
 
     @Autowired
     private EBackendRepository eBackendRepository;
@@ -100,7 +100,7 @@ public class EBackendResourceIntTest {
             .name(DEFAULT_NAME)
             .type(DEFAULT_TYPE)
             .format(DEFAULT_FORMAT)
-            .validator(DEFAULT_VALIDATOR);
+            .required(DEFAULT_REQUIRED);
         return eBackend;
     }
 
@@ -128,7 +128,7 @@ public class EBackendResourceIntTest {
         assertThat(testEBackend.getName()).isEqualTo(DEFAULT_NAME);
         assertThat(testEBackend.getType()).isEqualTo(DEFAULT_TYPE);
         assertThat(testEBackend.getFormat()).isEqualTo(DEFAULT_FORMAT);
-        assertThat(testEBackend.getValidator()).isEqualTo(DEFAULT_VALIDATOR);
+        assertThat(testEBackend.isRequired()).isEqualTo(DEFAULT_REQUIRED);
     }
 
     @Test
@@ -165,7 +165,7 @@ public class EBackendResourceIntTest {
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
             .andExpect(jsonPath("$.[*].type").value(hasItem(DEFAULT_TYPE.toString())))
             .andExpect(jsonPath("$.[*].format").value(hasItem(DEFAULT_FORMAT.toString())))
-            .andExpect(jsonPath("$.[*].validator").value(hasItem(DEFAULT_VALIDATOR.toString())));
+            .andExpect(jsonPath("$.[*].required").value(hasItem(DEFAULT_REQUIRED.booleanValue())));
     }
 
     @Test
@@ -182,7 +182,7 @@ public class EBackendResourceIntTest {
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
             .andExpect(jsonPath("$.type").value(DEFAULT_TYPE.toString()))
             .andExpect(jsonPath("$.format").value(DEFAULT_FORMAT.toString()))
-            .andExpect(jsonPath("$.validator").value(DEFAULT_VALIDATOR.toString()));
+            .andExpect(jsonPath("$.required").value(DEFAULT_REQUIRED.booleanValue()));
     }
 
     @Test
@@ -208,7 +208,7 @@ public class EBackendResourceIntTest {
             .name(UPDATED_NAME)
             .type(UPDATED_TYPE)
             .format(UPDATED_FORMAT)
-            .validator(UPDATED_VALIDATOR);
+            .required(UPDATED_REQUIRED);
         EBackendDTO eBackendDTO = eBackendMapper.toDto(updatedEBackend);
 
         restEBackendMockMvc.perform(put("/api/e-backends")
@@ -223,7 +223,7 @@ public class EBackendResourceIntTest {
         assertThat(testEBackend.getName()).isEqualTo(UPDATED_NAME);
         assertThat(testEBackend.getType()).isEqualTo(UPDATED_TYPE);
         assertThat(testEBackend.getFormat()).isEqualTo(UPDATED_FORMAT);
-        assertThat(testEBackend.getValidator()).isEqualTo(UPDATED_VALIDATOR);
+        assertThat(testEBackend.isRequired()).isEqualTo(UPDATED_REQUIRED);
     }
 
     @Test

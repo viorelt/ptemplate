@@ -22,18 +22,14 @@ public class SubmitAction implements Serializable {
     private Long id;
 
     /**
-     * cheia pentru eticheta butonului prin care se face plata
+     * The backend endpoint where the payment is sent to.
      */
-    @ApiModelProperty(value = "cheia pentru eticheta butonului prin care se face plata")
-    @Column(name = "label_key")
-    private String labelKey;
-
-    /**
-     * endpointul la care se face plata
-     */
-    @ApiModelProperty(value = "endpointul la care se face plata")
+    @ApiModelProperty(value = "The backend endpoint where the payment is sent to.")
     @Column(name = "endpoint")
     private String endpoint;
+
+    @ManyToOne
+    private I18N labelKey;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -42,19 +38,6 @@ public class SubmitAction implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getLabelKey() {
-        return labelKey;
-    }
-
-    public SubmitAction labelKey(String labelKey) {
-        this.labelKey = labelKey;
-        return this;
-    }
-
-    public void setLabelKey(String labelKey) {
-        this.labelKey = labelKey;
     }
 
     public String getEndpoint() {
@@ -68,6 +51,19 @@ public class SubmitAction implements Serializable {
 
     public void setEndpoint(String endpoint) {
         this.endpoint = endpoint;
+    }
+
+    public I18N getLabelKey() {
+        return labelKey;
+    }
+
+    public SubmitAction labelKey(I18N i18N) {
+        this.labelKey = i18N;
+        return this;
+    }
+
+    public void setLabelKey(I18N i18N) {
+        this.labelKey = i18N;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -95,7 +91,6 @@ public class SubmitAction implements Serializable {
     public String toString() {
         return "SubmitAction{" +
             "id=" + getId() +
-            ", labelKey='" + getLabelKey() + "'" +
             ", endpoint='" + getEndpoint() + "'" +
             "}";
     }

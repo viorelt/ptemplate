@@ -1,26 +1,32 @@
 {
     "fluentMethods": true,
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "validators",
+            "otherEntityName": "eValidator",
+            "otherEntityRelationshipName": "eBackend"
+        }
+    ],
     "fields": [
         {
             "fieldName": "name",
-            "javadoc": "numele java aferent elementului curent",
+            "javadoc": "The java name of the current element",
             "fieldType": "String"
         },
         {
             "fieldName": "type",
-            "javadoc": "tipul java aferent elementului curent",
+            "javadoc": "The java type of the current element",
             "fieldType": "String"
         },
         {
             "fieldName": "format",
-            "javadoc": "formatul java aferent elementului curent",
+            "javadoc": "The java format of the current element value",
             "fieldType": "String"
         },
         {
-            "fieldName": "validator",
-            "javadoc": "validatorul java aferent elementului curent",
-            "fieldType": "String"
+            "fieldName": "required",
+            "fieldType": "Boolean"
         }
     ],
     "changelogDate": "20180508123809",

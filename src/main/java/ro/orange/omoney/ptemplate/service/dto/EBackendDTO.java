@@ -2,6 +2,8 @@ package ro.orange.omoney.ptemplate.service.dto;
 
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -17,7 +19,7 @@ public class EBackendDTO implements Serializable {
 
     private String format;
 
-    private String validator;
+    private Boolean required;
 
     public Long getId() {
         return id;
@@ -51,12 +53,12 @@ public class EBackendDTO implements Serializable {
         this.format = format;
     }
 
-    public String getValidator() {
-        return validator;
+    public Boolean isRequired() {
+        return required;
     }
 
-    public void setValidator(String validator) {
-        this.validator = validator;
+    public void setRequired(Boolean required) {
+        this.required = required;
     }
 
     @Override
@@ -87,7 +89,7 @@ public class EBackendDTO implements Serializable {
             ", name='" + getName() + "'" +
             ", type='" + getType() + "'" +
             ", format='" + getFormat() + "'" +
-            ", validator='" + getValidator() + "'" +
+            ", required='" + isRequired() + "'" +
             "}";
     }
 }

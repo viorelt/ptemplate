@@ -28,8 +28,6 @@ public class EUiDTO implements Serializable {
 
     private String format;
 
-    private String validator;
-
     private Long labelKeyId;
 
     private Long descriptionKeyId;
@@ -100,14 +98,6 @@ public class EUiDTO implements Serializable {
         this.format = format;
     }
 
-    public String getValidator() {
-        return validator;
-    }
-
-    public void setValidator(String validator) {
-        this.validator = validator;
-    }
-
     public Long getLabelKeyId() {
         return labelKeyId;
     }
@@ -164,7 +154,6 @@ public class EUiDTO implements Serializable {
             ", required='" + isRequired() + "'" +
             ", visible='" + isVisible() + "'" +
             ", format='" + getFormat() + "'" +
-            ", validator='" + getValidator() + "'" +
             "}";
     }
 }

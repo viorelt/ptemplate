@@ -8,10 +8,14 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity SubmitAction and its DTO SubmitActionDTO.
  */
-@Mapper(componentModel = "spring", uses = {})
+@Mapper(componentModel = "spring", uses = {I18NMapper.class})
 public interface SubmitActionMapper extends EntityMapper<SubmitActionDTO, SubmitAction> {
 
+    @Mapping(source = "labelKey.id", target = "labelKeyId")
+    SubmitActionDTO toDto(SubmitAction submitAction);
 
+    @Mapping(source = "labelKeyId", target = "labelKey")
+    SubmitAction toEntity(SubmitActionDTO submitActionDTO);
 
     default SubmitAction fromId(Long id) {
         if (id == null) {

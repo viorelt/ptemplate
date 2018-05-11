@@ -13,12 +13,12 @@
     "fields": [
         {
             "fieldName": "icon",
-            "javadoc": "pathul pentru iconul ce apare in dreptul fiecarui template\nin ecranul platile mele",
+            "javadoc": "The icon name assigned to the template.",
             "fieldType": "String"
         },
         {
             "fieldName": "boxColor",
-            "javadoc": "reprezinta culoarea aferenta tipului de template",
+            "javadoc": "The template's box color.",
             "fieldType": "String"
         }
     ],

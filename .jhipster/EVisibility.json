@@ -1,0 +1,40 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "eUi",
+            "otherEntityName": "eUi",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "parent",
+            "otherEntityName": "element",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "type",
+            "fieldType": "VisibilityType",
+            "fieldValues": "REGEX,VALUE"
+        },
+        {
+            "fieldName": "value",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "operand",
+            "fieldType": "OperandType",
+            "fieldValues": "EQUALS,NOT_EQUALS"
+        }
+    ],
+    "changelogDate": "20180511140802",
+    "entityTableName": "e_visibility",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "microserviceName": "ptemplate"
+}

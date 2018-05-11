@@ -33,9 +33,9 @@ public class MyTemplate implements Serializable {
     private Long accountId;
 
     /**
-     * numele sub care a fost salvata plata mea
+     * The custom name assigned by the user.
      */
-    @ApiModelProperty(value = "numele sub care a fost salvata plata mea")
+    @ApiModelProperty(value = "The custom name assigned by the user.")
     @Column(name = "name")
     private String name;
 

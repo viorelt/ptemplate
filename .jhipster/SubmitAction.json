@@ -1,15 +1,17 @@
 {
     "fluentMethods": true,
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "labelKey",
+            "otherEntityName": "i18N",
+            "otherEntityField": "id"
+        }
+    ],
     "fields": [
         {
-            "fieldName": "labelKey",
-            "javadoc": "cheia pentru eticheta butonului prin care se face plata",
-            "fieldType": "String"
-        },
-        {
             "fieldName": "endpoint",
-            "javadoc": "endpointul la care se face plata",
+            "javadoc": "The backend endpoint where the payment is sent to.",
             "fieldType": "String"
         }
     ],

@@ -17,6 +17,8 @@ public interface EUiMapper extends EntityMapper<EUiDTO, EUi> {
     EUiDTO toDto(EUi eUi);
 
     @Mapping(target = "options", ignore = true)
+    @Mapping(target = "validators", ignore = true)
+    @Mapping(target = "visibilities", ignore = true)
     @Mapping(source = "labelKeyId", target = "labelKey")
     @Mapping(source = "descriptionKeyId", target = "descriptionKey")
     @Mapping(source = "hintKeyId", target = "hintKey")

@@ -14,5 +14,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="e_ui"/>
 
+        <addForeignKeyConstraint baseColumnNames="label_id"
+                                 baseTableName="value_option"
+                                 constraintName="fk_value_option_label_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="i_18_n"/>
+
     </changeSet>
 </databaseChangeLog>

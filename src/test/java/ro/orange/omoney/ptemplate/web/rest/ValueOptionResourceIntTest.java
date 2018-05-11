@@ -41,9 +41,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = PtemplateApp.class)
 public class ValueOptionResourceIntTest {
 
-    private static final String DEFAULT_LABEL = "AAAAAAAAAA";
-    private static final String UPDATED_LABEL = "BBBBBBBBBB";
-
     private static final String DEFAULT_VALUE = "AAAAAAAAAA";
     private static final String UPDATED_VALUE = "BBBBBBBBBB";
 
@@ -91,7 +88,6 @@ public class ValueOptionResourceIntTest {
      */
     public static ValueOption createEntity(EntityManager em) {
         ValueOption valueOption = new ValueOption()
-            .label(DEFAULT_LABEL)
             .value(DEFAULT_VALUE);
         return valueOption;
     }
@@ -117,7 +113,6 @@ public class ValueOptionResourceIntTest {
         List<ValueOption> valueOptionList = valueOptionRepository.findAll();
         assertThat(valueOptionList).hasSize(databaseSizeBeforeCreate + 1);
         ValueOption testValueOption = valueOptionList.get(valueOptionList.size() - 1);
-        assertThat(testValueOption.getLabel()).isEqualTo(DEFAULT_LABEL);
         assertThat(testValueOption.getValue()).isEqualTo(DEFAULT_VALUE);
     }
 
@@ -152,7 +147,6 @@ public class ValueOptionResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(valueOption.getId().intValue())))
-            .andExpect(jsonPath("$.[*].label").value(hasItem(DEFAULT_LABEL.toString())))
             .andExpect(jsonPath("$.[*].value").value(hasItem(DEFAULT_VALUE.toString())));
     }
 
@@ -167,7 +161,6 @@ public class ValueOptionResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(valueOption.getId().intValue()))
-            .andExpect(jsonPath("$.label").value(DEFAULT_LABEL.toString()))
             .andExpect(jsonPath("$.value").value(DEFAULT_VALUE.toString()));
     }
 
@@ -191,7 +184,6 @@ public class ValueOptionResourceIntTest {
         // Disconnect from session so that the updates on updatedValueOption are not directly saved in db
         em.detach(updatedValueOption);
         updatedValueOption
-            .label(UPDATED_LABEL)
             .value(UPDATED_VALUE);
         ValueOptionDTO valueOptionDTO = valueOptionMapper.toDto(updatedValueOption);
 
@@ -204,7 +196,6 @@ public class ValueOptionResourceIntTest {
         List<ValueOption> valueOptionList = valueOptionRepository.findAll();
         assertThat(valueOptionList).hasSize(databaseSizeBeforeUpdate);
         ValueOption testValueOption = valueOptionList.get(valueOptionList.size() - 1);
-        assertThat(testValueOption.getLabel()).isEqualTo(UPDATED_LABEL);
         assertThat(testValueOption.getValue()).isEqualTo(UPDATED_VALUE);
     }
 
