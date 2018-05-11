@@ -1,0 +1,273 @@
+
+/**
+ * Entitatea reprezinta un sablon static pe baza caruia se vor genera sabloane
+ * in platile mele
+ */
+entity Template {
+	/**
+     * The code that uniquely identifies a template
+     */
+	code String,
+     /**
+      * Who created the version
+      */
+    createdBy String,
+    /**
+     * When the version was created
+     */
+    createdDate Instant,
+
+    /**
+     * Flag to indicate if a particular template has been deleted
+     */
+    deleted Boolean
+}
+
+entity EValidator {
+ 	value String,
+    type ValidatorType
+ 	
+}
+entity MyTemplate{
+	/**
+     * The user account identifier
+     */
+    accountId Long,
+     /**
+     * The custom name assigned by the user.
+     */
+     name String
+    /**
+     * Who created the version
+     */
+    createdBy String,
+    /**
+     * When the version was created
+     */
+    createdDate Instant
+}
+
+
+
+/**
+ * The TemplateBackend class is the extension of an attribute template
+ * used for certain backend processing
+ */
+entity TBackend{
+	/**
+     * When the version was created
+     */
+	type String,
+    /**
+     * Boolean.TRUE if the template is used for recurring payments
+     */
+    recurrence Boolean,
+    /**
+     * The date on which payment is automatically made
+     */
+    recurringDate Instant
+
+}
+
+entity TUi{
+	 /**
+     * The icon name assigned to the template.
+     */
+	 icon String,
+     /**
+     * The template's box color.
+     */
+   	boxColor String
+}
+
+entity SubmitAction{
+
+ 
+   /**
+     * The backend endpoint where the payment is sent to.
+     */
+    endpoint String
+}
+
+/**
+ * The Element entity
+ */
+entity Element{
+	/**
+     * The code of a specific lelement.
+     * This code must ensure the uniqueness of the template version
+     */
+	code String,
+    /**
+     * The name of a specific element
+     */
+	name String,
+     /**
+      * Flag to indicate if a particular template has been deleted
+      */
+    deleted Boolean
+
+}
+
+enum EUiType{
+ TEXT, NUMERIC, DATE, CHECKBOX, SELECTION, EMAIL, IBAN, PHONE
+}
+
+enum ValidatorType{
+	REGEX, MOD_97
+}
+
+/**
+ * The ElementUi entity
+ */
+entity EUi{
+    /**
+     * The element type.
+     */
+	type EUiType,
+   /**
+     * The position of the element inside the view.
+     */
+    index Integer,
+  
+    /**
+     * The icon name assigned to the element.
+     */
+    icon String,
+   
+   /**
+     * True if the element is read-only.
+     */
+    readOnly Boolean,
+     /**
+     * True if the element's completion is mandatory.
+     */
+    required Boolean,
+    /**
+     * True if the element is visible.
+     */
+    visible Boolean,
+   
+    /**
+     * The required format for the element.
+     */
+    format String,
+  
+}
+
+/**
+ * Entitatea EBackend pastreaza configurarile necesare
+ * procesarii elementului curent pe server
+ */
+entity EBackend{
+
+	
+    /**
+     * The java name of the current element
+     */
+	name String,
+  /**
+     * The java type of the current element
+     */
+    type String,
+    /**
+     * The java format of the current element value
+     */
+    format String,
+    
+    required Boolean
+   
+}
+
+/**
+ * Represents the value of an element and it may be either
+ * a predefined value contained inside a Template,
+ * or a custom value contained inside a MyTemplate.
+ */
+entity EValue{
+	 value String
+
+}
+
+enum VisibilityType {
+	REGEX, VALUE
+}
+enum OperandType {
+	EQUALS, NOT_EQUALS
+}
+entity EVisibility {
+	type VisibilityType,
+    value String,
+    operand OperandType,
+   
+}
+/**
+ * This is an option for the element of type EUiType.SELECTION
+ */
+entity ValueOption{
+
+    /**
+     * The option's backend corresponding value.
+     */
+    value String
+}
+
+entity I18N{
+	code String,
+    description String
+}
+
+entity Translate{
+	lang String,
+    value String
+}
+
+
+relationship OneToOne{
+	Element{ui} to EUi
+    Element{backend} to EBackend
+    Element{init} to EValue
+    Template{ui} to TUi
+    Template{backend} to TBackend
+    TUi{post} to SubmitAction
+    
+}
+relationship ManyToOne{
+	Template{parent} to Template
+   	MyTemplate{staticTemplate} to Template
+   
+    EValue{element} to Element
+   
+    EUi{labelKey} to I18N   
+   
+    EUi{descriptionKey} to I18N
+     
+    EUi{hintKey} to I18N
+    
+    SubmitAction{labelKey} to I18N,
+    
+    ValueOption{label} to I18N,
+    
+    EValidator{eUi} to EUi
+    
+    EValidator{errorMessage} to I18N
+    
+    EValidator{eBackend} to EBackend
+    
+    EVisibility{parent} to Element
+}
+
+relationship OneToMany {
+	Template{elements} to Element
+    EUi{options} to ValueOption
+    MyTemplate{properties} to EValue
+    I18N{translates} to Translate
+	EBackend{validators} to EValidator
+    EUi{validators} to EValidator
+    EUi{visibilities} to EVisibility
+}
+
+
+
+dto * with mapstruct
+service all with serviceImpl

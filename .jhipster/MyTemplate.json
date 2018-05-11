@@ -22,7 +22,7 @@
         },
         {
             "fieldName": "name",
-            "javadoc": "numele sub care a fost salvata plata mea",
+            "javadoc": "The custom name assigned by the user.",
             "fieldType": "String"
         },
         {

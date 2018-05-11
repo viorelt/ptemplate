@@ -21,7 +21,7 @@
         }
     ],
     "changelogDate": "20180508123810",
-    "javadoc": "EValue reprezinta valoarea elementului curent si\neste fie o valoare definita la nivel de template static,\nfie la nivel de myTemplate.",
+    "javadoc": "Represents the value of an element and it may be either\na predefined value contained inside a Template,\nor a custom value contained inside a MyTemplate.",
     "entityTableName": "e_value",
     "dto": "mapstruct",
     "pagination": "no",

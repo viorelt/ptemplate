@@ -12,6 +12,8 @@ import org.mapstruct.*;
 public interface EBackendMapper extends EntityMapper<EBackendDTO, EBackend> {
 
 
+    @Mapping(target = "validators", ignore = true)
+    EBackend toEntity(EBackendDTO eBackendDTO);
 
     default EBackend fromId(Long id) {
         if (id == null) {

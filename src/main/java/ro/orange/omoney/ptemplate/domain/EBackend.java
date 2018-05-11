@@ -1,11 +1,14 @@
 package ro.orange.omoney.ptemplate.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -25,32 +28,32 @@ public class EBackend implements Serializable {
     private Long id;
 
     /**
-     * numele java aferent elementului curent
+     * The java name of the current element
      */
-    @ApiModelProperty(value = "numele java aferent elementului curent")
+    @ApiModelProperty(value = "The java name of the current element")
     @Column(name = "name")
     private String name;
 
     /**
-     * tipul java aferent elementului curent
+     * The java type of the current element
      */
-    @ApiModelProperty(value = "tipul java aferent elementului curent")
+    @ApiModelProperty(value = "The java type of the current element")
     @Column(name = "jhi_type")
     private String type;
 
     /**
-     * formatul java aferent elementului curent
+     * The java format of the current element value
      */
-    @ApiModelProperty(value = "formatul java aferent elementului curent")
+    @ApiModelProperty(value = "The java format of the current element value")
     @Column(name = "format")
     private String format;
 
-    /**
-     * validatorul java aferent elementului curent
-     */
-    @ApiModelProperty(value = "validatorul java aferent elementului curent")
-    @Column(name = "validator")
-    private String validator;
+    @Column(name = "required")
+    private Boolean required;
+
+    @OneToMany(mappedBy = "eBackend")
+    @JsonIgnore
+    private Set<EValidator> validators = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -100,17 +103,42 @@ public class EBackend implements Serializable {
         this.format = format;
     }
 
-    public String getValidator() {
-        return validator;
+    public Boolean isRequired() {
+        return required;
     }
 
-    public EBackend validator(String validator) {
-        this.validator = validator;
+    public EBackend required(Boolean required) {
+        this.required = required;
         return this;
     }
 
-    public void setValidator(String validator) {
-        this.validator = validator;
+    public void setRequired(Boolean required) {
+        this.required = required;
+    }
+
+    public Set<EValidator> getValidators() {
+        return validators;
+    }
+
+    public EBackend validators(Set<EValidator> eValidators) {
+        this.validators = eValidators;
+        return this;
+    }
+
+    public EBackend addValidators(EValidator eValidator) {
+        this.validators.add(eValidator);
+        eValidator.setEBackend(this);
+        return this;
+    }
+
+    public EBackend removeValidators(EValidator eValidator) {
+        this.validators.remove(eValidator);
+        eValidator.setEBackend(null);
+        return this;
+    }
+
+    public void setValidators(Set<EValidator> eValidators) {
+        this.validators = eValidators;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -141,7 +169,7 @@ public class EBackend implements Serializable {
             ", name='" + getName() + "'" +
             ", type='" + getType() + "'" +
             ", format='" + getFormat() + "'" +
-            ", validator='" + getValidator() + "'" +
+            ", required='" + isRequired() + "'" +
             "}";
     }
 }

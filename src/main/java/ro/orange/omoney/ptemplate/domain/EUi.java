@@ -29,62 +29,66 @@ public class EUi implements Serializable {
     private Long id;
 
     /**
-     * tipul elementului
+     * The element type.
      */
-    @ApiModelProperty(value = "tipul elementului")
+    @ApiModelProperty(value = "The element type.")
     @Enumerated(EnumType.STRING)
     @Column(name = "jhi_type")
     private EUiType type;
 
     /**
-     * ordinea elementului in pagina
+     * The position of the element inside the view.
      */
-    @ApiModelProperty(value = "ordinea elementului in pagina")
+    @ApiModelProperty(value = "The position of the element inside the view.")
     @Column(name = "jhi_index")
     private Integer index;
 
     /**
-     * path-ul relativ pentru elementul curent
+     * The icon name assigned to the element.
      */
-    @ApiModelProperty(value = "path-ul relativ pentru elementul curent")
+    @ApiModelProperty(value = "The icon name assigned to the element.")
     @Column(name = "icon")
     private String icon;
 
+    /**
+     * True if the element is read-only.
+     */
+    @ApiModelProperty(value = "True if the element is read-only.")
     @Column(name = "read_only")
     private Boolean readOnly;
 
     /**
-     * true daca elementul este obligatoriu de introdus
+     * True if the element's completion is mandatory.
      */
-    @ApiModelProperty(value = "true daca elementul este obligatoriu de introdus")
+    @ApiModelProperty(value = "True if the element's completion is mandatory.")
     @Column(name = "required")
     private Boolean required;
 
     /**
-     * true daca elementul este vizibil
+     * True if the element is visible.
      */
-    @ApiModelProperty(value = "true daca elementul este vizibil")
+    @ApiModelProperty(value = "True if the element is visible.")
     @Column(name = "visible")
     private Boolean visible;
 
     /**
-     * formatul necesar interfetei grafice, care va fi aplicat
-     * pe valoarea venita din backend
+     * The required format for the element.
      */
-    @ApiModelProperty(value = "formatul necesar interfetei grafice, care va fi aplicat pe valoarea venita din backend")
+    @ApiModelProperty(value = "The required format for the element.")
     @Column(name = "format")
     private String format;
-
-    /**
-     * validatorul pentru elementul curent
-     */
-    @ApiModelProperty(value = "validatorul pentru elementul curent")
-    @Column(name = "validator")
-    private String validator;
 
     @OneToMany(mappedBy = "eUi")
     @JsonIgnore
     private Set<ValueOption> options = new HashSet<>();
+
+    @OneToMany(mappedBy = "eUi")
+    @JsonIgnore
+    private Set<EValidator> validators = new HashSet<>();
+
+    @OneToMany(mappedBy = "eUi")
+    @JsonIgnore
+    private Set<EVisibility> visibilities = new HashSet<>();
 
     @ManyToOne
     private I18N labelKey;
@@ -195,19 +199,6 @@ public class EUi implements Serializable {
         this.format = format;
     }
 
-    public String getValidator() {
-        return validator;
-    }
-
-    public EUi validator(String validator) {
-        this.validator = validator;
-        return this;
-    }
-
-    public void setValidator(String validator) {
-        this.validator = validator;
-    }
-
     public Set<ValueOption> getOptions() {
         return options;
     }
@@ -231,6 +222,56 @@ public class EUi implements Serializable {
 
     public void setOptions(Set<ValueOption> valueOptions) {
         this.options = valueOptions;
+    }
+
+    public Set<EValidator> getValidators() {
+        return validators;
+    }
+
+    public EUi validators(Set<EValidator> eValidators) {
+        this.validators = eValidators;
+        return this;
+    }
+
+    public EUi addValidators(EValidator eValidator) {
+        this.validators.add(eValidator);
+        eValidator.setEUi(this);
+        return this;
+    }
+
+    public EUi removeValidators(EValidator eValidator) {
+        this.validators.remove(eValidator);
+        eValidator.setEUi(null);
+        return this;
+    }
+
+    public void setValidators(Set<EValidator> eValidators) {
+        this.validators = eValidators;
+    }
+
+    public Set<EVisibility> getVisibilities() {
+        return visibilities;
+    }
+
+    public EUi visibilities(Set<EVisibility> eVisibilities) {
+        this.visibilities = eVisibilities;
+        return this;
+    }
+
+    public EUi addVisibilities(EVisibility eVisibility) {
+        this.visibilities.add(eVisibility);
+        eVisibility.setEUi(this);
+        return this;
+    }
+
+    public EUi removeVisibilities(EVisibility eVisibility) {
+        this.visibilities.remove(eVisibility);
+        eVisibility.setEUi(null);
+        return this;
+    }
+
+    public void setVisibilities(Set<EVisibility> eVisibilities) {
+        this.visibilities = eVisibilities;
     }
 
     public I18N getLabelKey() {
@@ -304,7 +345,6 @@ public class EUi implements Serializable {
             ", required='" + isRequired() + "'" +
             ", visible='" + isVisible() + "'" +
             ", format='" + getFormat() + "'" +
-            ", validator='" + getValidator() + "'" +
             "}";
     }
 }

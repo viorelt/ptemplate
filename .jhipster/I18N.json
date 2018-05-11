@@ -3,8 +3,8 @@
     "relationships": [
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "languages",
-            "otherEntityName": "language",
+            "relationshipName": "translates",
+            "otherEntityName": "translate",
             "otherEntityRelationshipName": "i18N"
         }
     ],

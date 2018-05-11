@@ -8,11 +8,11 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * EValue reprezinta valoarea elementului curent si
- * este fie o valoare definita la nivel de template static,
- * fie la nivel de myTemplate.
+ * Represents the value of an element and it may be either
+ * a predefined value contained inside a Template,
+ * or a custom value contained inside a MyTemplate.
  */
-@ApiModel(description = "EValue reprezinta valoarea elementului curent si este fie o valoare definita la nivel de template static, fie la nivel de myTemplate.")
+@ApiModel(description = "Represents the value of an element and it may be either a predefined value contained inside a Template, or a custom value contained inside a MyTemplate.")
 @Entity
 @Table(name = "e_value")
 public class EValue implements Serializable {

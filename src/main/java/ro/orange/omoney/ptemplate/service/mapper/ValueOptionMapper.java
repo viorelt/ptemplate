@@ -8,13 +8,15 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity ValueOption and its DTO ValueOptionDTO.
  */
-@Mapper(componentModel = "spring", uses = {EUiMapper.class})
+@Mapper(componentModel = "spring", uses = {EUiMapper.class, I18NMapper.class})
 public interface ValueOptionMapper extends EntityMapper<ValueOptionDTO, ValueOption> {
 
     @Mapping(source = "eUi.id", target = "eUiId")
+    @Mapping(source = "label.id", target = "labelId")
     ValueOptionDTO toDto(ValueOption valueOption);
 
     @Mapping(source = "eUiId", target = "eUi")
+    @Mapping(source = "labelId", target = "label")
     ValueOption toEntity(ValueOptionDTO valueOptionDTO);
 
     default ValueOption fromId(Long id) {

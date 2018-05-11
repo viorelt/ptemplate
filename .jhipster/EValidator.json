@@ -1,0 +1,53 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "eUi",
+            "otherEntityName": "eUi",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "errorMessage",
+            "otherEntityName": "i18N",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "eBackend",
+            "otherEntityName": "eBackend",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "eUi",
+            "otherEntityName": "eUi",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "eBackend",
+            "otherEntityName": "eBackend",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "value",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "ValidatorType",
+            "fieldValues": "REGEX,MOD_97"
+        }
+    ],
+    "changelogDate": "20180511140753",
+    "entityTableName": "e_validator",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "microserviceName": "ptemplate"
+}

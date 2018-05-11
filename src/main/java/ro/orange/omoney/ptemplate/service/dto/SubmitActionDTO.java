@@ -2,6 +2,8 @@ package ro.orange.omoney.ptemplate.service.dto;
 
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -11,9 +13,9 @@ public class SubmitActionDTO implements Serializable {
 
     private Long id;
 
-    private String labelKey;
-
     private String endpoint;
+
+    private Long labelKeyId;
 
     public Long getId() {
         return id;
@@ -23,20 +25,20 @@ public class SubmitActionDTO implements Serializable {
         this.id = id;
     }
 
-    public String getLabelKey() {
-        return labelKey;
-    }
-
-    public void setLabelKey(String labelKey) {
-        this.labelKey = labelKey;
-    }
-
     public String getEndpoint() {
         return endpoint;
     }
 
     public void setEndpoint(String endpoint) {
         this.endpoint = endpoint;
+    }
+
+    public Long getLabelKeyId() {
+        return labelKeyId;
+    }
+
+    public void setLabelKeyId(Long i18NId) {
+        this.labelKeyId = i18NId;
     }
 
     @Override
@@ -64,7 +66,6 @@ public class SubmitActionDTO implements Serializable {
     public String toString() {
         return "SubmitActionDTO{" +
             "id=" + getId() +
-            ", labelKey='" + getLabelKey() + "'" +
             ", endpoint='" + getEndpoint() + "'" +
             "}";
     }

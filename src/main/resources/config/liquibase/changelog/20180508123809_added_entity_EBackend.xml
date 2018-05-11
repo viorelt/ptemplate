@@ -33,7 +33,7 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="validator" type="varchar(255)">
+            <column name="required" type="boolean">
                 <constraints nullable="true" />
             </column>
 

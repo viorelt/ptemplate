@@ -12,7 +12,7 @@ import org.mapstruct.*;
 public interface I18NMapper extends EntityMapper<I18NDTO, I18N> {
 
 
-    @Mapping(target = "languages", ignore = true)
+    @Mapping(target = "translates", ignore = true)
     I18N toEntity(I18NDTO i18NDTO);
 
     default I18N fromId(Long id) {

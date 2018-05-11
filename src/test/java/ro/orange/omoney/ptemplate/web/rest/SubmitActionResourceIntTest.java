@@ -41,9 +41,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = PtemplateApp.class)
 public class SubmitActionResourceIntTest {
 
-    private static final String DEFAULT_LABEL_KEY = "AAAAAAAAAA";
-    private static final String UPDATED_LABEL_KEY = "BBBBBBBBBB";
-
     private static final String DEFAULT_ENDPOINT = "AAAAAAAAAA";
     private static final String UPDATED_ENDPOINT = "BBBBBBBBBB";
 
@@ -91,7 +88,6 @@ public class SubmitActionResourceIntTest {
      */
     public static SubmitAction createEntity(EntityManager em) {
         SubmitAction submitAction = new SubmitAction()
-            .labelKey(DEFAULT_LABEL_KEY)
             .endpoint(DEFAULT_ENDPOINT);
         return submitAction;
     }
@@ -117,7 +113,6 @@ public class SubmitActionResourceIntTest {
         List<SubmitAction> submitActionList = submitActionRepository.findAll();
         assertThat(submitActionList).hasSize(databaseSizeBeforeCreate + 1);
         SubmitAction testSubmitAction = submitActionList.get(submitActionList.size() - 1);
-        assertThat(testSubmitAction.getLabelKey()).isEqualTo(DEFAULT_LABEL_KEY);
         assertThat(testSubmitAction.getEndpoint()).isEqualTo(DEFAULT_ENDPOINT);
     }
 
@@ -152,7 +147,6 @@ public class SubmitActionResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(submitAction.getId().intValue())))
-            .andExpect(jsonPath("$.[*].labelKey").value(hasItem(DEFAULT_LABEL_KEY.toString())))
             .andExpect(jsonPath("$.[*].endpoint").value(hasItem(DEFAULT_ENDPOINT.toString())));
     }
 
@@ -167,7 +161,6 @@ public class SubmitActionResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(submitAction.getId().intValue()))
-            .andExpect(jsonPath("$.labelKey").value(DEFAULT_LABEL_KEY.toString()))
             .andExpect(jsonPath("$.endpoint").value(DEFAULT_ENDPOINT.toString()));
     }
 
@@ -191,7 +184,6 @@ public class SubmitActionResourceIntTest {
         // Disconnect from session so that the updates on updatedSubmitAction are not directly saved in db
         em.detach(updatedSubmitAction);
         updatedSubmitAction
-            .labelKey(UPDATED_LABEL_KEY)
             .endpoint(UPDATED_ENDPOINT);
         SubmitActionDTO submitActionDTO = submitActionMapper.toDto(updatedSubmitAction);
 
@@ -204,7 +196,6 @@ public class SubmitActionResourceIntTest {
         List<SubmitAction> submitActionList = submitActionRepository.findAll();
         assertThat(submitActionList).hasSize(databaseSizeBeforeUpdate);
         SubmitAction testSubmitAction = submitActionList.get(submitActionList.size() - 1);
-        assertThat(testSubmitAction.getLabelKey()).isEqualTo(UPDATED_LABEL_KEY);
         assertThat(testSubmitAction.getEndpoint()).isEqualTo(UPDATED_ENDPOINT);
     }
 

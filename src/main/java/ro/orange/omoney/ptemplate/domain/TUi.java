@@ -22,17 +22,16 @@ public class TUi implements Serializable {
     private Long id;
 
     /**
-     * pathul pentru iconul ce apare in dreptul fiecarui template
-     * in ecranul platile mele
+     * The icon name assigned to the template.
      */
-    @ApiModelProperty(value = "pathul pentru iconul ce apare in dreptul fiecarui template in ecranul platile mele")
+    @ApiModelProperty(value = "The icon name assigned to the template.")
     @Column(name = "icon")
     private String icon;
 
     /**
-     * reprezinta culoarea aferenta tipului de template
+     * The template's box color.
      */
-    @ApiModelProperty(value = "reprezinta culoarea aferenta tipului de template")
+    @ApiModelProperty(value = "The template's box color.")
     @Column(name = "box_color")
     private String boxColor;
 

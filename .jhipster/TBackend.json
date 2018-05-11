@@ -4,7 +4,7 @@
     "fields": [
         {
             "fieldName": "type",
-            "javadoc": "este tipul payload-ului si poate fi: numele unei clase,\nun anumit tip de plugin Spring cu ajutorul caruia se va face\nmaparea dintre o structura sursa (de TransactionHistory)\nin structura necesara template-ului curent",
+            "javadoc": "When the version was created",
             "fieldType": "String"
         },
         {

@@ -31,7 +31,7 @@ public class I18N implements Serializable {
 
     @OneToMany(mappedBy = "i18N")
     @JsonIgnore
-    private Set<Language> languages = new HashSet<>();
+    private Set<Translate> translates = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -68,29 +68,29 @@ public class I18N implements Serializable {
         this.description = description;
     }
 
-    public Set<Language> getLanguages() {
-        return languages;
+    public Set<Translate> getTranslates() {
+        return translates;
     }
 
-    public I18N languages(Set<Language> languages) {
-        this.languages = languages;
+    public I18N translates(Set<Translate> translates) {
+        this.translates = translates;
         return this;
     }
 
-    public I18N addLanguages(Language language) {
-        this.languages.add(language);
-        language.setI18N(this);
+    public I18N addTranslates(Translate translate) {
+        this.translates.add(translate);
+        translate.setI18N(this);
         return this;
     }
 
-    public I18N removeLanguages(Language language) {
-        this.languages.remove(language);
-        language.setI18N(null);
+    public I18N removeTranslates(Translate translate) {
+        this.translates.remove(translate);
+        translate.setI18N(null);
         return this;
     }
 
-    public void setLanguages(Set<Language> languages) {
-        this.languages = languages;
+    public void setTranslates(Set<Translate> translates) {
+        this.translates = translates;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

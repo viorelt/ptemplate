@@ -13,11 +13,11 @@ public class ValueOptionDTO implements Serializable {
 
     private Long id;
 
-    private String label;
-
     private String value;
 
     private Long eUiId;
+
+    private Long labelId;
 
     public Long getId() {
         return id;
@@ -25,14 +25,6 @@ public class ValueOptionDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getLabel() {
-        return label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
     }
 
     public String getValue() {
@@ -49,6 +41,14 @@ public class ValueOptionDTO implements Serializable {
 
     public void setEUiId(Long eUiId) {
         this.eUiId = eUiId;
+    }
+
+    public Long getLabelId() {
+        return labelId;
+    }
+
+    public void setLabelId(Long i18NId) {
+        this.labelId = i18NId;
     }
 
     @Override
@@ -76,7 +76,6 @@ public class ValueOptionDTO implements Serializable {
     public String toString() {
         return "ValueOptionDTO{" +
             "id=" + getId() +
-            ", label='" + getLabel() + "'" +
             ", value='" + getValue() + "'" +
             "}";
     }
